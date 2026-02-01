@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Navbar } from "@/components/navbar";
 import { Github, Linkedin, FileText, Code, Mail } from "lucide-react";
 import Link from "next/link";
+import { API_BASE_URL } from "@/lib/config";
 
 interface Project {
   id: string;
@@ -15,7 +16,7 @@ export default function Home() {
   const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/api/projects")
+    fetch(`${API_BASE_URL}/api/projects`)
       .then((res) => res.json())
       .then((data) => setProjects(data))
       .catch((err) => console.error("Failed to fetch projects:", err));

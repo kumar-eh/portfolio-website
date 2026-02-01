@@ -39,7 +39,7 @@ async fn main() {
         .layer(Extension(pool))
         .layer(
             tower_http::cors::CorsLayer::new()
-                .allow_origin("http://localhost:3000".parse::<axum::http::HeaderValue>().unwrap())
+                .allow_origin(tower_http::cors::Any)
                 .allow_methods([axum::http::Method::GET, axum::http::Method::POST, axum::http::Method::PUT, axum::http::Method::DELETE])
                 .allow_headers([axum::http::header::CONTENT_TYPE, axum::http::header::AUTHORIZATION]),
         );

@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import { API_BASE_URL } from "@/lib/config";
 
 export default function AdminDashboard() {
     const router = useRouter();
@@ -23,7 +24,7 @@ export default function AdminDashboard() {
         e.preventDefault();
         try {
             const techStackArray = newProject.tech_stack.split(",").map(s => s.trim());
-            const res = await fetch("http://localhost:3001/api/admin/projects", {
+            const res = await fetch(`${API_BASE_URL}/api/admin/projects`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ ...newProject, tech_stack: techStackArray }),
