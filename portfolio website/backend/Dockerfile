@@ -35,7 +35,7 @@ RUN apt-get update && apt-get install -y libssl-dev ca-certificates && rm -rf /v
 COPY --from=builder /app/target/release/backend /app/backend
 
 # Copy static configuration or migrations if needed
-COPY migrations ./migrations
+# COPY migrations ./migrations
 # We can run migrations on startup or via a separate command. 
 # For simplicity in this guide, we'll assume the app might run them or we run a separate job.
 # But our current setup_db.rs is a separate binary. 
