@@ -14,6 +14,8 @@ COPY . .
 
 # Set SQLx to offline mode
 ENV SQLX_OFFLINE=true
+# Limit build concurrency for low memory environments (Free Tier)
+ENV CARGO_BUILD_JOBS=1
 
 # Build the application
 RUN cargo build --release --bin backend
