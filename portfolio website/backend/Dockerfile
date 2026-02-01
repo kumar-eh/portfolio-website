@@ -43,8 +43,6 @@ COPY migrations ./migrations
 # but usually production apps run migrations on startup programmatically.
 # For this guide, I'll recommend running the migration via the app or a release command.
 
-COPY .env.example .env
-
 # Expose port
 EXPOSE 3001
 
