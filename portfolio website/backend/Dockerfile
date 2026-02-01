@@ -12,6 +12,9 @@ COPY Cargo.toml Cargo.lock ./
 # Copy all files
 COPY . .
 
+# Set SQLx to offline mode
+ENV SQLX_OFFLINE=true
+
 # Build the application
 RUN cargo build --release --bin backend
 
